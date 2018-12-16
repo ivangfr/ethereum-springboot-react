@@ -2,11 +2,11 @@
 
 The goal of this project is to implement an `Ethereum Smart Contract` called `SoccerManager` and deploy it to
 [`Ethereum Blockchain`](https://www.ethereum.org) running locally using [`ethereum/client-go`](https://github.com/ethereum/go-ethereum)
-docker image. Besides, we will develop two Spring Boot applications (`ethereuma-api` and `player-api`) that use
+docker image. Besides, we will develop two Spring Boot applications (`ethereum-api` and `player-api`) that use
 [`Web3j`](https://docs.web3j.io/getting_started.html) library to communicate with `Ethereum Blockchain` (create wallet,
 transfer ether, etc) and the `SoccerManager` smart contract.
 
-## About `SoccerManager` smart contract
+## About *SoccerManager* smart contract
 
 `SoccerManager` is a smart contract that handles soccer players. Once deployed, this smart contract has a list of
 soccer players already pre-defined. Initially, the agent of those pre-defined players is the owner of the contract (the wallet
@@ -40,11 +40,11 @@ and `player-api/src/main/java/com/mycompany/playerapi/contract`.
 ./compile-generate-soccermanager.sh
 ```
 
-## Starting/Running the services
+## Starting/Running the api's
 
 ***Note. In order to run some commands/scripts, you must have [`jq`](https://stedolan.github.io/jq) installed on you machine***
 
-### Start `ethereum-api`
+### Start *ethereum-api*
 
 - Open a new terminal and inside `springboot-web3j-ethereum/ethereum-api`, run the command below to start the service 
 ```
@@ -53,7 +53,7 @@ mvn spring-boot:run
 
 - `ethereum-api` has a swagger site: http://localhost:8080/swagger-ui.html
 
-### Create wallets, deploy contract and start `play-api` service
+### Create wallets, deploy contract and start *play-api*
 
 - Open a new terminal
 
@@ -75,7 +75,7 @@ export ETHEREUM_CONTRACT_SOCCERMANAGER_ADDRESS=$(curl -s -X POST "http://localho
 mvn spring-boot:run
 ```
 
-### Test `player-api`
+### Test *player-api*
 
 - Open a new terminal
 
