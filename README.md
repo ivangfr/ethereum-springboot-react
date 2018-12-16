@@ -53,7 +53,7 @@ mvn spring-boot:run
 
 - `ethereum-api` has a swagger site: http://localhost:8080/swagger-ui.html
 
-### Create wallets, deploy contract and start *play-api*
+### Create wallets, deploy contract and start *player-api*
 
 - Open a new terminal
 
