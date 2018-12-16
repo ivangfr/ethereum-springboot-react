@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: player-api
+server:
+  port: 8081
+
+ethereum:
+  contract:
+    soccermanager:
+      address:

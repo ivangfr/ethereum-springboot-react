@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: ethereum-api
+server:
+  port: 8080
