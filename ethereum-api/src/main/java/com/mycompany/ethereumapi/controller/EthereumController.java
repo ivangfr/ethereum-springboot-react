@@ -6,22 +6,23 @@ import com.mycompany.ethereumapi.dto.GetWalletAddressDto;
 import com.mycompany.ethereumapi.dto.TransferDto;
 import com.mycompany.ethereumapi.dto.WalletDto;
 import com.mycompany.ethereumapi.service.EthereumService;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.web3j.crypto.CipherException;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.List;
 
-@Slf4j
 @RestController
 @RequestMapping("/api")
 public class EthereumController {
@@ -32,13 +33,15 @@ public class EthereumController {
         this.ethereumService = ethereumService;
     }
 
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/accounts")
     public List<String> getAccounts() throws IOException {
         return ethereumService.getAccounts();
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/wallets/create")
-    public WalletDto createWallet(@RequestBody CreateWalletDto createWalletDto) throws Exception {
+    public WalletDto createWallet(@Valid @RequestBody CreateWalletDto createWalletDto) throws Exception {
         String file = ethereumService.createWallet(createWalletDto.getPassword());
         String address = ethereumService.getWallet(createWalletDto.getPassword(), file).getAddress();
 
@@ -51,18 +54,21 @@ public class EthereumController {
         return new WalletDto(file, address);
     }
 
+    @ResponseStatus(HttpStatus.OK)
     @PostMapping("/wallets/get")
-    public Credentials getWallet(@RequestBody GetWalletAddressDto getWalletAddressDto) throws IOException, CipherException {
+    public Credentials getWallet(@Valid @RequestBody GetWalletAddressDto getWalletAddressDto) throws IOException, CipherException {
         return ethereumService.getWallet(getWalletAddressDto.getPassword(), getWalletAddressDto.getFile());
     }
 
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/wallets/{address}/balance")
     public BigInteger getWalletBalance(@PathVariable String address) throws IOException {
         return ethereumService.getWalletBalance(address);
     }
 
+    @ResponseStatus(HttpStatus.OK)
     @PostMapping("/wallets/transfer")
-    public EthSendTransaction transfer(@RequestBody TransferDto transferDto) throws Exception {
+    public EthSendTransaction transfer(@Valid @RequestBody TransferDto transferDto) throws Exception {
         return ethereumService.transfer(
                 transferDto.getFromAddress(),
                 transferDto.getToAddress(),
@@ -71,8 +77,9 @@ public class EthereumController {
                 transferDto.getGasLimit());
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/contracts/deploy/soccerManager")
-    public String deploySoccerManagerContract(@RequestBody DeployContractDto deployContractDto) throws Exception {
+    public String deploySoccerManagerContract(@Valid @RequestBody DeployContractDto deployContractDto) throws Exception {
         return ethereumService.deploySoccerManagerContract(
                 deployContractDto.getPassword(),
                 deployContractDto.getFile(),

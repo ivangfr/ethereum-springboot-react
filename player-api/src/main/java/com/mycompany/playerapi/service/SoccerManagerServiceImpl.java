@@ -9,10 +9,9 @@ import org.web3j.crypto.Credentials;
 import org.web3j.crypto.WalletUtils;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
-import org.web3j.tuples.generated.Tuple5;
+import org.web3j.tuples.generated.Tuple6;
 import org.web3j.tx.gas.StaticGasProvider;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.List;
@@ -38,7 +37,7 @@ public class SoccerManagerServiceImpl implements SoccerManagerService {
     }
 
     @Override
-    public Tuple5<String, BigInteger, String, Boolean, String> getPlayer(BigInteger playerId, String password, String file, BigInteger gasPrice, BigInteger gasLimit) throws Exception {
+    public Tuple6<BigInteger, String, BigInteger, String, Boolean, String> getPlayer(BigInteger playerId, String password, String file, BigInteger gasPrice, BigInteger gasLimit) throws Exception {
         SoccerManager soccerManager = loadSoccerManager(password, file, gasPrice, gasLimit);
         return soccerManager.getPlayer(playerId).send();
     }
@@ -62,9 +61,9 @@ public class SoccerManagerServiceImpl implements SoccerManagerService {
     }
 
     @Override
-    public List getAgentPlayers(String password, String file, BigInteger gasPrice, BigInteger gasLimit) throws Exception {
+    public List getPlayersOfAgent(String password, String file, BigInteger gasPrice, BigInteger gasLimit) throws Exception {
         SoccerManager soccerManager = loadSoccerManager(password, file, gasPrice, gasLimit);
-        return soccerManager.getAgentPlayers().send();
+        return soccerManager.getPlayersOfAgent().send();
     }
 
     @Override

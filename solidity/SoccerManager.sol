@@ -73,13 +73,13 @@ contract SoccerManager {
         return true;
     }
 
-    function getPlayer(uint id) public view returns (string memory, uint, string memory, bool, address) {
+    function getPlayer(uint id) public view returns (uint, string memory, uint, string memory, bool, address) {
         require(players[id].status, "Player with the informed id doesn't exist");
         Player storage player = players[id];
-        return (player.name, player.price, player.image, player.forSale, player.agent);
+        return (player.id, player.name, player.price, player.image, player.forSale, player.agent);
     }
 
-    function getAgentPlayers() public view returns (uint[] memory) {
+    function getPlayersOfAgent() public view returns (uint[] memory) {
         return agents[msg.sender];
     }
 
