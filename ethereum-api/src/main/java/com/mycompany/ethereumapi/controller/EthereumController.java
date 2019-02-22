@@ -33,7 +33,6 @@ public class EthereumController {
         this.ethereumService = ethereumService;
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/accounts")
     public List<String> getAccounts() throws IOException {
         return ethereumService.getAccounts();
@@ -54,19 +53,16 @@ public class EthereumController {
         return new WalletDto(file, address);
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @PostMapping("/wallets/get")
     public Credentials getWallet(@Valid @RequestBody GetWalletAddressDto getWalletAddressDto) throws IOException, CipherException {
         return ethereumService.getWallet(getWalletAddressDto.getPassword(), getWalletAddressDto.getFile());
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/wallets/{address}/balance")
     public BigInteger getWalletBalance(@PathVariable String address) throws IOException {
         return ethereumService.getWalletBalance(address);
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @PostMapping("/wallets/transfer")
     public EthSendTransaction transfer(@Valid @RequestBody TransferDto transferDto) throws Exception {
         return ethereumService.transfer(

@@ -10,15 +10,10 @@ import java.math.BigInteger;
 public class PlayerDto {
 
     private BigInteger id;
-
     private String name;
-
     private BigInteger price;
-
     private String image;
-
     private Boolean forSale;
-
     private String agent;
 
 }

@@ -43,7 +43,6 @@ public class PlayerApiController {
                 addPlayerDto.getGasLimit());
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @PostMapping("/players/get")
     public PlayerDto getPlayer(@Valid @RequestBody GetPlayerDto getPlayerDto) throws Exception {
         return mapToPlayerDto(soccerManagerService.getPlayer(
@@ -60,7 +59,6 @@ public class PlayerApiController {
                 tuple6.getValue4(), tuple6.getValue5(), tuple6.getValue6());
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @PostMapping("/players/buy")
     public TransactionReceipt buyPlayer(@Valid @RequestBody BuyPlayerDto buyPlayerDto) throws Exception {
         return soccerManagerService.buyPlayer(
@@ -72,7 +70,6 @@ public class PlayerApiController {
                 buyPlayerDto.getGasLimit());
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @PostMapping("/players/update")
     public TransactionReceipt updatePlayer(@Valid @RequestBody UpdatePlayerDto updatePlayerDto) throws Exception {
         return soccerManagerService.updatePlayer(
@@ -84,7 +81,6 @@ public class PlayerApiController {
                 updatePlayerDto.getGasLimit());
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @PostMapping("/agents/players")
     public List getAgentPlayers(@Valid @RequestBody BasePlayerDto basePlayerDto) throws Exception {
         return soccerManagerService.getPlayersOfAgent(
@@ -94,7 +90,6 @@ public class PlayerApiController {
                 basePlayerDto.getGasLimit());
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @PostMapping("/players/numberOf")
     public BigInteger getNumberOfPlayers(@Valid @RequestBody BasePlayerDto basePlayerDto) throws Exception {
         return soccerManagerService.getNumberOfPlayers(

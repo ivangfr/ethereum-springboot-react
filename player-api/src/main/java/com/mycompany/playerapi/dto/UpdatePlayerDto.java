@@ -17,7 +17,7 @@ public class UpdatePlayerDto extends BasePlayerDto {
     @Positive
     private BigInteger playerId;
 
-    @ApiModelProperty(position = 6, example = "1000000000000000000")
+    @ApiModelProperty(position = 6, example = "true")
     @NotNull
     private Boolean forSale;
 
