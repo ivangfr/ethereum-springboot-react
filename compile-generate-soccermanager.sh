@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-WEB3J_PATH=/Users/ivanfranchin/tools/web3j-4.0.1/bin # <= Set the correct web3j package in your machine
+WEB3J_PATH=/Users/ivanfranchin/tools/web3j-4.3.0/bin # <= Set the correct web3j package in your machine
 
 PROJECT_PATH=$PWD
 SOLIDITY_PATH=${PROJECT_PATH}/solidity
