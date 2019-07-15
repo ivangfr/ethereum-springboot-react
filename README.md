@@ -84,7 +84,7 @@ Then, the script uses those two files to generate the `SoccerManager.java` on `e
 
 **Note. In order to run some commands/scripts, you must have [`jq`](https://stedolan.github.io/jq) installed on you machine**
 
-## Start ethereum-api
+### Start ethereum-api
 
 - In a terminal and inside `springboot-web3j-ethereum` root folder, run the following command 
 ```
@@ -93,7 +93,7 @@ Then, the script uses those two files to generate the `SoccerManager.java` on `e
 
 - Wait for the service to be up and running.
 
-## Create contract owner wallet, deploy contract and start player-api
+### Create contract owner wallet, deploy contract and start player-api
 
 - Open a new terminal
 
