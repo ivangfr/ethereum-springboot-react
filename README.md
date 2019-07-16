@@ -170,6 +170,13 @@ curl -s -X POST "http://localhost:8081/api/agents/players" \
   -d "{ \"password\": 123, \"file\": \"$NEW_AGENT_WALLET_FILE\", \"gasPrice\": 1, \"gasLimit\": 3000000}" | jq '.'
 ```
 
+## Shutdown
+
+In order to stop `ethereum/client-go` docker container run
+```
+docker rm -fv ethereum
+```
+
 ## TODO
 
 - implement `player-ui`
