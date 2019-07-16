@@ -55,7 +55,7 @@ smart contract. Using `Web3j`, it listens to `PlayerAdded`, `PlayerUpdated` and 
 Open a terminal and, inside `springboot-web3j-ethereum` root folder, run the docker command below. It starts a container
 in development mode and exposes `Ethereum RPC API` on port `8545`.
 ```
-docker run -d --name ethereum \
+docker run -d --rm --name ethereum \
   -p 8545:8545 -p 30303:30303 \
   ethereum/client-go:v1.9.0 \
   --rpc --rpcaddr "0.0.0.0" --rpcapi="db,eth,net,web3,personal" --rpccorsdomain "*" --dev
@@ -70,7 +70,7 @@ address to another, etc. I won't focus on it because I decided to implement such
 > ```
 > **Note 2.** To stop the container run
 > ```
-> docker rm -fv ethereum
+> docker stop ethereum
 > ```
 
 The next step is to run the script below. It will compile Solidity `SoccerManager` code, `solidity/SoccerManager.sol`.
