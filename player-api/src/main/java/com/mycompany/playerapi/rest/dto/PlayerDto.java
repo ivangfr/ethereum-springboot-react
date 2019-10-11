@@ -1,4 +1,4 @@
-package com.mycompany.playerapi.dto;
+package com.mycompany.playerapi.rest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

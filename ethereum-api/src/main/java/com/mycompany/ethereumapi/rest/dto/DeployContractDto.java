@@ -1,4 +1,4 @@
-package com.mycompany.ethereumapi.dto;
+package com.mycompany.ethereumapi.rest.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -15,16 +15,16 @@ public class DeployContractDto {
     @NotBlank
     private String password;
 
-    @ApiModelProperty(position = 2, example = "/path/to/UTC...")
+    @ApiModelProperty(position = 1, example = "/path/to/UTC...")
     @NotBlank
     private String file;
 
-    @ApiModelProperty(position = 3, example = "1")
+    @ApiModelProperty(position = 2, example = "1")
     @NotNull
     @Positive
     private BigInteger gasPrice;
 
-    @ApiModelProperty(position = 4, example = "3000000")
+    @ApiModelProperty(position = 3, example = "3000000")
     @NotNull
     @Positive
     private BigInteger gasLimit;

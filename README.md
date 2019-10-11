@@ -22,11 +22,11 @@ soccer players registered. Initially, the agent of those pre-defined players is 
 address used to deploy the contract). Besides, only the owner of the contract can add players. Other wallets (agent
 wallets) can buy soccer players and, once it is done, the agent wallet becomes the owner of the player.
 
-## Microservices
+## Applications
 
 ### ethereum-api
 
-Spring-boot application that communicates with Ethereum Blockchain, using `Web3j` library. `ethereum-api` provides some
+Spring Boot application that communicates with Ethereum Blockchain, using `Web3j` library. `ethereum-api` provides some
 endpoints to create a new wallet, transfer ether from one wallet to another, etc. The swagger website is
 http://localhost:8080/swagger-ui.html
 
@@ -34,12 +34,12 @@ http://localhost:8080/swagger-ui.html
 
 ### player-api
 
-Spring-boot application that calls `SoccerManager` smart contract `public functions` using `Web3j`. It exposes some
+Spring Boot application that calls `SoccerManager` smart contract `public functions` using `Web3j`. It exposes some
 endpoints so that you can buy a player, get info about the player, add more players, etc. The swagger website is
 http://localhost:8081/swagger-ui.html.
 
-**PS. Some endpoints, such `POST /api/players/add`, requires the use of the contract owner wallet, i.e, the wallet that
-was used to deploy `SoccerManager` smart contract.**
+> Some endpoints, such `POST /api/players/add`, requires the use of the contract owner wallet, i.e, the wallet that
+was used to deploy `SoccerManager` smart contract.
 
 ![player-api](images/player-api.png)
 
@@ -50,39 +50,51 @@ smart contract. Using `Web3j`, it listens to `PlayerAdded`, `PlayerUpdated` and 
 `SoccerManager` contract (and some other logs from Ethereum Blockchain) and updates the screen on-the-fly. Besides,
 `player-ui` communicates directly with `player-api` whenever it needs some information from `SoccerManager` contract.
 
-## Start environment
+## Download Web3j
+
+Go to https://github.com/web3j/web3j/releases and download the latest version of `Web3j`. Unzip to your preferred
+location. 
+
+## Run Ethereum locally
 
 Open a terminal and, inside `springboot-web3j-ethereum` root folder, run the docker command below. It starts a container
 in development mode and exposes `Ethereum RPC API` on port `8545`.
 ```
 docker run -d --rm --name ethereum \
   -p 8545:8545 -p 30303:30303 \
-  ethereum/client-go:v1.9.0 \
+  ethereum/client-go:v1.9.6 \
   --rpc --rpcaddr "0.0.0.0" --rpcapi="db,eth,net,web3,personal" --rpccorsdomain "*" --dev
 ```
 
-> **Note 1.** Run the following command if you want to enter in the Geth’s interactive JavaScript console inside Docker
+> Run the following command if you want to enter in the Geth’s interactive JavaScript console inside Docker
 container. It provides a lot of features such as: create an wallet, check waller balance, transfer ether from one
 address to another, etc. I won't focus on it because I decided to implement such features in `ethereum-api` using
 `Web3j`.
 > ```
 > docker exec -it ethereum geth attach ipc:/tmp/geth.ipc
 > ```
-> **Note 2.** To stop the container run
+> To stop the container run
 > ```
 > docker stop ethereum
 > ```
 
-The next step is to run the script below. It will compile Solidity `SoccerManager` code, `solidity/SoccerManager.sol`.
-When the compilation finishes, it will produce the files: `solidity/SoccerManager.abi` and `solidity/SoccerManager.bin`.
-Then, the script uses those two files to generate the `SoccerManager.java` on `ethereum-api` and `player-api`. 
+## Compile Smart Contract
+
+In a terminal, export to `WEB3J_PATH` environment variable the `Web3j` absolute path
+```
+export WEB3J_PATH=path/to/web3j-X.Y.Z
+```
+
+Then, run the following script. It will compile Solidity `SoccerManager` code, `solidity/SoccerManager.sol`. When the
+compilation finishes, it will produce the files: `solidity/SoccerManager.abi` and `solidity/SoccerManager.bin`. Then,
+the script uses those two files to generate the `SoccerManager.java` on `ethereum-api` and `player-api`. 
 ```
 ./compile-generate-soccermanager.sh
 ```
 
-## Starting Microservices
+## Starting applications
 
-**Note. In order to run some commands/scripts, you must have [`jq`](https://stedolan.github.io/jq) installed on you machine**
+> In order to run some commands/scripts, you must have [`jq`](https://stedolan.github.io/jq) installed on you machine
 
 ### Start ethereum-api
 
@@ -118,16 +130,16 @@ export ETHEREUM_CONTRACT_SOCCERMANAGER_ADDRESS=$(curl -s \
   -d "{ \"password\": 123, \"file\": \"$CONTRACT_OWNER_WALLET_FILE\", \"gasPrice\": 1, \"gasLimit\": 3000000}")
 ```
 
-- To start `play-api`, go to `springboot-web3j-ethereum` root folder and run the following command 
+- To start `player-api`, go to `springboot-web3j-ethereum` root folder and run the following command 
 ```
 ./mvnw spring-boot:run --projects player-api
 ```
 
 - Wait for the service to be up and running.
 
-## Microservice URLs
+## Application URLs
 
-| Microservice   | URL                                   |
+| Application    | URL                                   |
 | -------------- | ------------------------------------- |
 | `ethereum-api` | http://localhost:8080/swagger-ui.html |
 | `player-api`   | http://localhost:8081/swagger-ui.html |
@@ -174,7 +186,7 @@ curl -s -X POST "http://localhost:8081/api/agents/players" \
 
 In order to stop `ethereum/client-go` docker container run
 ```
-docker rm -fv ethereum
+docker stop ethereum
 ```
 
 ## TODO

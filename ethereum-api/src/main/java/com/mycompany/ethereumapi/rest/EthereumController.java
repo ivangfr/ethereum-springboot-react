@@ -1,10 +1,10 @@
-package com.mycompany.ethereumapi.controller;
+package com.mycompany.ethereumapi.rest;
 
-import com.mycompany.ethereumapi.dto.CreateWalletDto;
-import com.mycompany.ethereumapi.dto.DeployContractDto;
-import com.mycompany.ethereumapi.dto.GetWalletAddressDto;
-import com.mycompany.ethereumapi.dto.TransferDto;
-import com.mycompany.ethereumapi.dto.WalletDto;
+import com.mycompany.ethereumapi.rest.dto.CreateWalletDto;
+import com.mycompany.ethereumapi.rest.dto.DeployContractDto;
+import com.mycompany.ethereumapi.rest.dto.GetWalletAddressDto;
+import com.mycompany.ethereumapi.rest.dto.TransferDto;
+import com.mycompany.ethereumapi.rest.dto.WalletDto;
 import com.mycompany.ethereumapi.service.EthereumService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,7 +64,7 @@ public class EthereumController {
     }
 
     @PostMapping("/wallets/transfer")
-    public EthSendTransaction transfer(@Valid @RequestBody TransferDto transferDto) throws Exception {
+    public EthSendTransaction transfer(@Valid @RequestBody TransferDto transferDto) throws IOException {
         return ethereumService.transfer(
                 transferDto.getFromAddress(),
                 transferDto.getToAddress(),

@@ -1,4 +1,4 @@
-package com.mycompany.playerapi.dto;
+package com.mycompany.playerapi.rest.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -10,15 +10,11 @@ import java.math.BigInteger;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class UpdatePlayerDto extends BasePlayerDto {
+public class GetPlayerDto extends BasePlayerDto {
 
-    @ApiModelProperty(position = 5, example = "1")
+    @ApiModelProperty(position = 4, example = "1")
     @NotNull
     @Positive
     private BigInteger playerId;
-
-    @ApiModelProperty(position = 6, example = "true")
-    @NotNull
-    private Boolean forSale;
 
 }

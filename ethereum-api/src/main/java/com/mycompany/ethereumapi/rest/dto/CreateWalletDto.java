@@ -1,4 +1,4 @@
-package com.mycompany.ethereumapi.dto;
+package com.mycompany.ethereumapi.rest.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -14,7 +14,7 @@ public class CreateWalletDto {
     @NotBlank
     private String password;
 
-    @ApiModelProperty(position = 2, example = "10000000000000000000")
+    @ApiModelProperty(position = 1, example = "10000000000000000000")
     @NotNull
     private BigInteger initialBalance;
 

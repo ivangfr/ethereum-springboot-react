@@ -1,4 +1,4 @@
-package com.mycompany.ethereumapi.dto;
+package com.mycompany.ethereumapi.rest.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -12,7 +12,7 @@ public class GetWalletAddressDto {
     @NotBlank
     private String password;
 
-    @ApiModelProperty(position = 2, example = "/path/to/UTC...")
+    @ApiModelProperty(position = 1, example = "/path/to/UTC...")
     @NotBlank
     private String file;
 

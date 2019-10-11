@@ -1,6 +1,8 @@
 /solidity/*.bin
 /solidity/*.abi
 
+UTC--*.json
+
 *.DS_Store
 
 target/

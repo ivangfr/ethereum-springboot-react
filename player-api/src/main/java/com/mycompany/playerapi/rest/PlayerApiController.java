@@ -1,11 +1,11 @@
-package com.mycompany.playerapi.controller;
+package com.mycompany.playerapi.rest;
 
-import com.mycompany.playerapi.dto.AddPlayerDto;
-import com.mycompany.playerapi.dto.BasePlayerDto;
-import com.mycompany.playerapi.dto.BuyPlayerDto;
-import com.mycompany.playerapi.dto.GetPlayerDto;
-import com.mycompany.playerapi.dto.PlayerDto;
-import com.mycompany.playerapi.dto.UpdatePlayerDto;
+import com.mycompany.playerapi.rest.dto.AddPlayerDto;
+import com.mycompany.playerapi.rest.dto.BasePlayerDto;
+import com.mycompany.playerapi.rest.dto.BuyPlayerDto;
+import com.mycompany.playerapi.rest.dto.GetPlayerDto;
+import com.mycompany.playerapi.rest.dto.PlayerDto;
+import com.mycompany.playerapi.rest.dto.UpdatePlayerDto;
 import com.mycompany.playerapi.service.SoccerManagerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,8 +55,8 @@ public class PlayerApiController {
     }
 
     private PlayerDto mapToPlayerDto(Tuple6<BigInteger, String, BigInteger, String, Boolean, String> tuple6) {
-        return new PlayerDto(tuple6.getValue1(), tuple6.getValue2(), tuple6.getValue3(),
-                tuple6.getValue4(), tuple6.getValue5(), tuple6.getValue6());
+        return new PlayerDto(tuple6.component1(), tuple6.component2(), tuple6.component3(),
+                tuple6.component4(), tuple6.component5(), tuple6.component6());
     }
 
     @PostMapping("/players/buy")

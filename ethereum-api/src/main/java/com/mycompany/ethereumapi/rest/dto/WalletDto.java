@@ -1,4 +1,4 @@
-package com.mycompany.ethereumapi.dto;
+package com.mycompany.ethereumapi.rest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
