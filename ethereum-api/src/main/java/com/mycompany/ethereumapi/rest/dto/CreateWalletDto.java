@@ -1,6 +1,6 @@
 package com.mycompany.ethereumapi.rest.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -10,11 +10,11 @@ import java.math.BigInteger;
 @Data
 public class CreateWalletDto {
 
-    @ApiModelProperty(example = "123")
+    @Schema(example = "123")
     @NotBlank
     private String password;
 
-    @ApiModelProperty(position = 1, example = "10000000000000000000")
+    @Schema(example = "10000000000000000000")
     @NotNull
     private BigInteger initialBalance;
 

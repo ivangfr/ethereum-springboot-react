@@ -1,6 +1,6 @@
 package com.mycompany.ethereumapi.rest.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -11,25 +11,25 @@ import java.math.BigInteger;
 @Data
 public class TransferDto {
 
-    @ApiModelProperty(example = "0x...")
+    @Schema(example = "0x...")
     @NotBlank
     private String fromAddress;
 
-    @ApiModelProperty(position = 1, example = "0x...")
+    @Schema(example = "0x...")
     @NotBlank
     private String toAddress;
 
-    @ApiModelProperty(position = 2, example = "10000000000000000000")
+    @Schema(example = "10000000000000000000")
     @NotNull
     @Positive
     private BigInteger amount;
 
-    @ApiModelProperty(position = 3, example = "20000000000")
+    @Schema(example = "20000000000")
     @NotNull
     @Positive
     private BigInteger gasPrice;
 
-    @ApiModelProperty(position = 4, example = "21000")
+    @Schema(example = "21000")
     @NotNull
     @Positive
     private BigInteger gasLimit;

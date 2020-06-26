@@ -1,6 +1,6 @@
 package com.mycompany.playerapi.rest.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -12,12 +12,12 @@ import java.math.BigInteger;
 @EqualsAndHashCode(callSuper = true)
 public class BuyPlayerDto extends BasePlayerDto {
 
-    @ApiModelProperty(position = 4, example = "1")
+    @Schema(example = "1")
     @NotNull
     @Positive
     private BigInteger playerId;
 
-    @ApiModelProperty(position = 5, example = "1000000000000000000")
+    @Schema(example = "1000000000000000000")
     @NotNull
     @Positive
     private BigInteger weiValue;

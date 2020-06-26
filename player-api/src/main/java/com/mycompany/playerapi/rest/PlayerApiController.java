@@ -16,19 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.tuples.generated.Tuple6;
 
+import lombok.RequiredArgsConstructor;
+
 import javax.validation.Valid;
 import java.math.BigInteger;
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
 public class PlayerApiController {
 
     private final SoccerManagerService soccerManagerService;
-
-    public PlayerApiController(SoccerManagerService soccerManagerService) {
-        this.soccerManagerService = soccerManagerService;
-    }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/players/add")

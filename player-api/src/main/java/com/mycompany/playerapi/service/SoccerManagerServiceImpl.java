@@ -2,6 +2,8 @@ package com.mycompany.playerapi.service;
 
 import com.mycompany.playerapi.contract.SoccerManager;
 import com.mycompany.playerapi.exception.ContractAddressNotInformedException;
+
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -18,16 +20,13 @@ import java.math.BigInteger;
 import java.util.List;
 
 @Slf4j
+@RequiredArgsConstructor
 @Service
 public class SoccerManagerServiceImpl implements SoccerManagerService {
 
     private final Web3j web3j;
 
     private String contractAddress;
-
-    public SoccerManagerServiceImpl(Web3j web3j) {
-        this.web3j = web3j;
-    }
 
     @Value("${ethereum.contract.soccermanager.address}")
     public void setContractAddress(String contractAddress) {

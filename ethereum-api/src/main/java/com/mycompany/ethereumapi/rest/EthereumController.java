@@ -6,6 +6,7 @@ import com.mycompany.ethereumapi.rest.dto.GetWalletAddressDto;
 import com.mycompany.ethereumapi.rest.dto.TransferDto;
 import com.mycompany.ethereumapi.rest.dto.WalletDto;
 import com.mycompany.ethereumapi.service.EthereumService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,15 +24,12 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
 public class EthereumController {
 
     private final EthereumService ethereumService;
-
-    public EthereumController(EthereumService ethereumService) {
-        this.ethereumService = ethereumService;
-    }
 
     @GetMapping("/accounts")
     public List<String> getAccounts() throws IOException {

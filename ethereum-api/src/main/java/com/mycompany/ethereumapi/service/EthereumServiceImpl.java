@@ -27,7 +27,6 @@ import java.util.List;
 public class EthereumServiceImpl implements EthereumService {
 
     private final File walletDirectory;
-
     private final Web3j web3j;
 
     public EthereumServiceImpl(Web3j web3j) {
