@@ -1,6 +1,14 @@
 # springboot-web3j-ethereum
 
-The goal of this project is to implement an **Ethereum Smart Contract** called `SoccerManager` (using [Solidity](https://solidity.readthedocs.io/en/latest) programming language) and deploy it to [Ethereum Blockchain](https://www.ethereum.org) running locally using [ethereum/client-go](https://github.com/ethereum/go-ethereum) docker image. Besides, we will develop three applications (`ethereum-api`, `player-api` and `player-ui`) that uses [Web3j](https://docs.web3j.io/getting_started.html) library to communicate with Ethereum blockchain and `SoccerManager` smart contract.
+The goals of this project are:
+
+1. Implement an **Ethereum Smart Contract** called `SoccerManager` (using [Solidity](https://solidity.readthedocs.io/en/latest) programming language) and deploy it to [Ethereum Blockchain](https://www.ethereum.org) running locally using [ethereum/client-go](https://github.com/ethereum/go-ethereum) docker image;
+
+1. Create `SoccerManager` smart contract;
+
+1. Implement two [`Spring Boot`](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/) backend applications, `ethereum-api` and `player-api`, that uses [Web3j](https://docs.web3j.io/getting_started.html) library to communicate with Ethereum blockchain;
+
+1. Implement two [`ReactJS`](https://reactjs.org/) frontend applications, `ethereum-ui` and `player-ui`, that communicate to their respective backend application.
 
 ## Ethereum Smart Contract
 
@@ -16,7 +24,7 @@ The goal of this project is to implement an **Ethereum Smart Contract** called `
 
 - **ethereum-api**
 
-  [`Spring Boot`](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/) application that communicates with Ethereum Blockchain, using `Web3j` library. `ethereum-api` provides some endpoints to create a new wallet, transfer ether from one wallet to another, etc.
+  `Spring Boot`application that communicates with Ethereum Blockchain, using `Web3j` library. `ethereum-api` provides some endpoints to create a new wallet, transfer ether from one wallet to another, etc.
 
   ![ethereum-api](images/ethereum-api.png)
 
