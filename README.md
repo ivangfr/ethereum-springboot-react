@@ -4,8 +4,6 @@ The goals of this project are:
 
 1. Implement an **Ethereum Smart Contract** called `SoccerManager` (using [Solidity](https://solidity.readthedocs.io/en/latest) programming language) and deploy it to [Ethereum Blockchain](https://www.ethereum.org) running locally using [ethereum/client-go](https://github.com/ethereum/go-ethereum) docker image;
 
-1. Create `SoccerManager` smart contract;
-
 1. Implement two [`Spring Boot`](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/) backend applications, `ethereum-api` and `player-api`, that uses [Web3j](https://docs.web3j.io/getting_started.html) library to communicate with Ethereum blockchain;
 
 1. Implement two [`ReactJS`](https://reactjs.org/) frontend applications, `ethereum-ui` and `player-ui`, that communicate to their respective backend application.
@@ -14,7 +12,7 @@ The goals of this project are:
 
 `Ethereum Smart Contract` is a program that runs on an `EVM` (`Ethereum Virtual Machine`) similar to a Java program that runs on `JVM` (`Java Virtual Machine`). A contract is a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum Blockchain. Ethereum Smart Contracts are usually written in `Solidity` programming language.
 
-[Remix](https://remix.ethereum.org) is a powerful, open source tool that helps you write contracts using Solidity straight from the browser. 
+In order to implement smart contracts we used [Remix](https://remix.ethereum.org). It's a powerful, open source tool that helps you write contracts using Solidity straight from the browser.
 
 - **SoccerManager**
 
