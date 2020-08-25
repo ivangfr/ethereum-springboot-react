@@ -31,7 +31,7 @@ public class SoccerManagerServiceImpl implements SoccerManagerService {
     @Value("${ethereum.contract.soccermanager.address}")
     public void setContractAddress(String contractAddress) {
         if (contractAddress.isEmpty()) {
-            throw new ContractAddressNotInformedException("'ethereum.contract.soccermanager.address' not informed");
+            throw new ContractAddressNotInformedException();
         }
         this.contractAddress = contractAddress;
     }

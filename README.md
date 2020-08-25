@@ -1,4 +1,4 @@
-# springboot-react-ethereum-web3j
+# ethereum-springboot-react
 
 The goals of this project are:
 
@@ -36,11 +36,11 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
 
 - **ethereum-ui** (TODO)
 
-  `ReactJS` frontend application that provides an User Interface so that we can create a wallet, check its balance, transfer ethereum to other wallets, etc.
+  `ReactJS` frontend application that provides a User Interface so that we can create a wallet, check its balance, transfer ethereum to other wallets, etc.
 
 - **player-ui** (TODO)
 
-  `ReactJS` frontend application that provides an User Interface to easily play with Ethereum Blockchain and `SoccerManager` smart contract. Using `Web3j`, it listens to `PlayerAdded`, `PlayerUpdated` and `PlayerBought` event emitted from `SoccerManager` contract (and some other logs from Ethereum Blockchain) and updates the screen on-the-fly. Besides, `player-ui` communicates directly with `player-api` whenever it needs some information from `SoccerManager` contract.
+  `ReactJS` frontend application that provides a User Interface to easily play with Ethereum Blockchain and `SoccerManager` smart contract. Using `Web3j`, it listens to `PlayerAdded`, `PlayerUpdated` and `PlayerBought` event emitted from `SoccerManager` contract (and some other logs from Ethereum Blockchain) and updates the screen on-the-fly. Besides, `player-ui` communicates directly with `player-api` whenever it needs some information from `SoccerManager` contract.
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
 
 ## Compile Smart Contract
 
-- In a terminal, make sure you are inside `springboot-react-ethereum-web3j` root folder
+- In a terminal, make sure you are inside `ethereum-springboot-react` root folder
 
 - Export to `WEB3J_PATH` environment variable, the absolute path of `Web3j` that you [downloaded & unzipped](#download-&-unzip-web3j)
   ```
@@ -93,7 +93,7 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
 
 - **ethereum-api**
 
-  - In a terminal and inside `springboot-react-ethereum-web3j/ethereum-api` folder, run the following command 
+  - In a terminal and inside `ethereum-springboot-react/ethereum-api` folder, run the following command 
   ```
   ./mvnw clean spring-boot:run
   ```
@@ -102,7 +102,7 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
 
 - **player-api**
 
-  - In a terminal, make sure you are inside `springboot-react-ethereum-web3j/player-api` folder
+  - In a terminal, make sure you are inside `ethereum-springboot-react/player-api` folder
 
   - Create `contract owner` wallet & deploy `SoccerManager` contract
   
