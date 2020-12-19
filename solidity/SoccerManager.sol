@@ -38,9 +38,9 @@ contract SoccerManager {
     }
 
     function addPreDefinedPlayers() private {
-        insertPlayer("Prass", 1000000000000000000, "http://www.palmeiras.com.br/public/upload/imagem/elencos/imagem_93_KUdxnljQ8yJq_original.jpg", msg.sender);
-        insertPlayer("Dudu", 3000000000000000000, "http://www.palmeiras.com.br/public/upload/imagem/elencos/imagem_578_vvzp0nAKLpmW_original.jpg", msg.sender);
-        insertPlayer("Felipe Melo", 2000000000000000000, "http://www.palmeiras.com.br/public/upload/imagem/elencos/imagem_923_wZ1APxQhfZSe_original.jpg", msg.sender);
+        insertPlayer("WEVERTON", 1000000000000000000, "https://s3.amazonaws.com/sep-bucket-prod/wp-content/uploads/2019/05/02082731/weverton.png", msg.sender);
+        insertPlayer("FELIPE MELO", 2000000000000000000, "https://s3.amazonaws.com/sep-bucket-prod/wp-content/uploads/2019/08/02080049/felipe-melo.png", msg.sender);
+        insertPlayer("GUSTAVO GOMEZ", 3000000000000000000, "https://s3.amazonaws.com/sep-bucket-prod/wp-content/uploads/2020/01/02080153/gustavo-gomez.png", msg.sender);
     }
 
     function addPlayer(string memory name, uint price, string memory image) public isOwner returns (uint) {

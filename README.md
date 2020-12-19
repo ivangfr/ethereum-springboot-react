@@ -62,17 +62,13 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
   ```
   docker run -d --rm --name ethereum \
     -p 8545:8545 -p 30303:30303 \
-    ethereum/client-go:v1.9.15 \
+    ethereum/client-go:v1.9.25 \
     --rpc --rpcaddr "0.0.0.0" --rpcapi="db,eth,net,web3,personal" --rpccorsdomain "*" --dev
   ```
 
   > Run the following command if you want to enter in the Geth’s interactive JavaScript console inside Docker container. It provides a lot of features such as: create an wallet, check waller balance, transfer ether from one address to another, etc. I won't focus on it because I decided to implement such features in `ethereum-api` using `Web3j`.
   > ```
   > docker exec -it ethereum geth attach ipc:/tmp/geth.ipc
-  > ```
-  > To stop the container run
-  > ```
-  > docker stop ethereum
   > ```
 
 ## Compile Smart Contract
@@ -189,7 +185,7 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
 
 ## TODO
 
-- implement `player-ui`
+- implement `ethereum-ui` and `player-ui`
 
 ## References
 
