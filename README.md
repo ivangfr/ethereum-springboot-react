@@ -1,6 +1,6 @@
 # ethereum-springboot-react
 
-The goals of this project are:
+The project goals are:
 
 1. Implement an **Ethereum Smart Contract** called `SoccerManager` (using [Solidity](https://solidity.readthedocs.io/en/latest) programming language) and deploy it to [Ethereum Blockchain](https://www.ethereum.org) running locally using [ethereum/client-go](https://github.com/ethereum/go-ethereum) docker image;
 
@@ -45,90 +45,101 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
 ## Prerequisites
 
 - [`Java 11+`](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
-- [`npm`](https://www.npmjs.com/)
 - [`Docker`](https://www.docker.com/)
 - [`jq`](https://stedolan.github.io/jq)
 
-## Download & Unzip Web3j
-
-- Go to https://github.com/web3j/web3j/releases/tag/v4.5.5 and download `web3j-4.5.5.zip`.
-- Unzip to your preferred location. 
-
 ## Run Ethereum locally
 
-- Open new a terminal
- 
-- Run the docker command below. It starts a container in development mode and exposes `Ethereum RPC API` on port `8545`.
-  ```
-  docker run -d --rm --name ethereum \
-    -p 8545:8545 -p 30303:30303 \
-    ethereum/client-go:v1.9.25 \
-    --rpc --rpcaddr "0.0.0.0" --rpcapi="db,eth,net,web3,personal" --rpccorsdomain "*" --dev
-  ```
+In a terminal, run the docker command below. It starts a container in development mode and exposes `Ethereum RPC API` on port `8545`.
+```
+docker run -d --rm --name ethereum \
+  -p 8545:8545 -p 30303:30303 \
+  ethereum/client-go:v1.9.25 \
+  --rpc --rpcaddr "0.0.0.0" --rpcapi="db,eth,net,web3,personal" --rpccorsdomain "*" --dev
+```
 
-  > Run the following command if you want to enter in the Geth’s interactive JavaScript console inside Docker container. It provides a lot of features such as: create an wallet, check waller balance, transfer ether from one address to another, etc. I won't focus on it because I decided to implement such features in `ethereum-api` using `Web3j`.
-  > ```
-  > docker exec -it ethereum geth attach ipc:/tmp/geth.ipc
-  > ```
+> Run the following `docker exec` command if you want to enter in the `Geth`’s interactive JavaScript console inside Docker container. It provides a lot of features such as: create an wallet, check waller balance, transfer ether from one address to another, etc. I won't focus on it because I decided to implement such features in `ethereum-api` using `Web3j`.
+> ```
+> docker exec -it ethereum geth attach ipc:/tmp/geth.ipc
+> ```
 
 ## Compile Smart Contract
 
-- In a terminal, make sure you are inside `ethereum-springboot-react` root folder
+- Access https://github.com/web3j/web3j/releases/tag/v4.5.5 and download `web3j-4.5.5.zip`
 
-- Export to `WEB3J_PATH` environment variable, the absolute path of `Web3j` that you [downloaded & unzipped](#download-&-unzip-web3j)
+- Unzip it to your preferred location
+
+- In a terminal, navigate to `ethereum-springboot-react` root folder
+
+- Export to `WEB3J_PATH` environment variable, the absolute path of `Web3j` where you have unzipped
   ```
   export WEB3J_PATH=path/to/web3j-4.5.5
   ```
 
-- Run the following script. It will compile Solidity `SoccerManager` code, `solidity/SoccerManager.sol`. When the compilation finishes, it will produce the files: `solidity/SoccerManager.abi` and `solidity/SoccerManager.bin`. Then, the script uses those two files to generate the `SoccerManager.java` on `ethereum-api` and `player-api`. 
+- Run the following script. It will compile Solidity `SoccerManager` code, `solidity/SoccerManager.sol`. When the compilation finishes, it will produce the files: `solidity/SoccerManager.abi` and `solidity/SoccerManager.bin`. Then, the script uses these two files to generate the `SoccerManager.java` in `ethereum-api` and `player-api`. 
   ```
   ./compile-generate-soccermanager.sh
   ```
 
-## Starting applications
+## Start applications & deploy Smart Contract
 
-- **ethereum-api**
+- ### Start ethereum-api
 
-  - In a terminal and inside `ethereum-springboot-react/ethereum-api` folder, run the following command 
-  ```
-  ./mvnw clean spring-boot:run
-  ```
+  - Open a new terminal and nagivate to `ethereum-springboot-react/ethereum-api` folder
   
-  - Wait for the service to start.
-
-- **player-api**
-
-  - In a terminal, make sure you are inside `ethereum-springboot-react/player-api` folder
-
-  - Create `contract owner` wallet & deploy `SoccerManager` contract
-  
-    1. Create the `contract owner` wallet
-       ```
-       CONTRACT_OWNER_WALLET=$(curl -s -X POST "http://localhost:8080/api/wallets/create" \
-         -H "Content-Type: application/json" \
-         -d "{ \"password\": 123, \"initialBalance\": 10000000000000000000}" | jq '.')
-       
-       CONTRACT_OWNER_WALLET_FILE=$(echo $CONTRACT_OWNER_WALLET | jq -r '.file')
-       
-       CONTRACT_OWNER_WALLET_ADDR=$(echo $CONTRACT_OWNER_WALLET | jq -r '.address')
-       
-       echo "### Contract owner wallet file => $CONTRACT_OWNER_WALLET_FILE"
-       ```
-
-    1. Deploy `SoccerManager` contract using the `contract owner` wallet
-       ```
-       export ETHEREUM_CONTRACT_SOCCERMANAGER_ADDRESS=$(curl -s \
-         -X POST "http://localhost:8080/api/contracts/deploy/soccerManager" \
-         -H "Content-Type: application/json" \
-         -d "{ \"password\": 123, \"file\": \"$CONTRACT_OWNER_WALLET_FILE\", \"gasPrice\": 1,    \"gasLimit\": 3000000}")
-       ```
-
-  - To start `player-api`, run the following command 
+  - Run following command to start application
     ```
     ./mvnw clean spring-boot:run
     ```
 
-  - Wait for the service to start.
+  - Wait for it to start before continuing
+
+- ### Deploy Smart Contract
+
+  - In a terminal, make sure you are inside `ethereum-springboot-react` folder
+
+  - Create the `contract owner` wallet
+    ```
+    CONTRACT_OWNER_WALLET=$(curl -s -X POST "http://localhost:8080/api/wallets/create" \
+      -H "Content-Type: application/json" \
+      -d "{ \"password\": 123, \"initialBalance\": 10000000000000000000}" | jq '.')
+    CONTRACT_OWNER_WALLET_FILE=$(echo $CONTRACT_OWNER_WALLET | jq -r '.file')
+    CONTRACT_OWNER_WALLET_ADDR=$(echo $CONTRACT_OWNER_WALLET | jq -r '.address')
+    ```
+
+  - To check `contract owner` wallet
+    ```
+    echo "CONTRACT_OWNER_WALLET=$CONTRACT_OWNER_WALLET"
+    echo "CONTRACT_OWNER_WALLET_FILE=$CONTRACT_OWNER_WALLET_FILE"
+    echo "CONTRACT_OWNER_WALLET_ADDR=$CONTRACT_OWNER_WALLET_ADDR"
+    ```
+
+  - Deploy `SoccerManager` contract using the `contract owner` wallet
+    ```
+    ETHEREUM_CONTRACT_SOCCERMANAGER_ADDRESS=$(curl -s \
+      -X POST "http://localhost:8080/api/contracts/deploy/soccerManager" \
+      -H "Content-Type: application/json" \
+      -d "{ \"password\": 123, \"file\": \"$CONTRACT_OWNER_WALLET_FILE\", \"gasPrice\": 1, \"gasLimit\": 3000000 }")
+    ```
+    
+  - To check `SoccerManager` contract address
+    ```
+    echo "ETHEREUM_CONTRACT_SOCCERMANAGER_ADDRESS=$ETHEREUM_CONTRACT_SOCCERMANAGER_ADDRESS"
+    ```
+
+- ### Start player-api
+
+  - Open a new terminal and navigate to `ethereum-springboot-react/player-api` folder
+  
+  - Export to `ETHEREUM_CONTRACT_SOCCERMANAGER_ADDRESS` environment variable the `SoccerManager` contract address obtained at [Deploy Smart Contract](#deploy-smart-contract) step
+    ```
+    export ETHEREUM_CONTRACT_SOCCERMANAGER_ADDRESS=...
+    ```
+  
+  - Run following command to start application
+    ```
+    ./mvnw clean spring-boot:run
+    ```
 
 ## Application URLs
 
@@ -139,19 +150,20 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
 
 ## Test player-api
 
-- Open a new terminal
-
-- Run the following commands to create `new agent` wallet
+- In a terminal, run the following commands to create `new agent` wallet
   ```
   NEW_AGENT_WALLET=$(curl -s -X POST "http://localhost:8080/api/wallets/create" \
     -H "Content-Type: application/json" \
     -d "{ \"password\": 123, \"initialBalance\": 10000000000000000000}" | jq '.')
-  
   NEW_AGENT_WALLET_FILE=$(echo $NEW_AGENT_WALLET | jq -r '.file')
-  
   NEW_AGENT_WALLET_ADDR=$(echo $NEW_AGENT_WALLET | jq -r '.address')
+  ```
   
-  echo "### New agent wallet file => $NEW_AGENT_WALLET_FILE"
+- To check `new agent` wallet
+  ```
+  echo "NEW_AGENT_WALLET = $NEW_AGENT_WALLET"
+  echo "NEW_AGENT_WALLET_FILE = $NEW_AGENT_WALLET_FILE"
+  echo "NEW_AGENT_WALLET_ADDR = $NEW_AGENT_WALLET_ADDR"
   ```
 
 - Get player with id `1` using `new agent` wallet
