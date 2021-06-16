@@ -189,8 +189,8 @@ docker run -d --rm --name ethereum \
 
 ## Shutdown
 
-- To stop `ethereum-api` and `player-api`, just to got their terminals and press `Ctrl+C`
-- In order to stop `ethereum/client-go` docker container, run the following command in a terminal
+- To stop `ethereum-api` and `player-api`, just to got the terminals where they are running and press `Ctrl+C`
+- To stop `ethereum/client-go` docker container, run the following command in a terminal
   ```
   docker stop ethereum
   ```

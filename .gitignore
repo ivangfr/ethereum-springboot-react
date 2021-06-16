@@ -3,8 +3,6 @@
 
 UTC--*.json
 
-*.DS_Store
-
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -37,3 +35,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### MAC OS ###
+*.DS_Store
