@@ -96,7 +96,7 @@ docker run -d --rm --name ethereum \
 
 - ### Deploy Smart Contract
 
-  - In a terminal, make sure you are inside `ethereum-springboot-react` folder
+  - In a terminal, make sure you are inside `ethereum-springboot-react` root folder
 
   - Create the `contract owner` wallet
     ```
