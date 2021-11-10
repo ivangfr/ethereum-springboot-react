@@ -15,5 +15,4 @@ public class GetWalletAddressDto {
     @Schema(example = "/path/to/UTC...")
     @NotBlank
     private String file;
-
 }

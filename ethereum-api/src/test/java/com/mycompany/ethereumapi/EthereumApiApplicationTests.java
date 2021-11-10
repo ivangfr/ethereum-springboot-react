@@ -11,6 +11,5 @@ class EthereumApiApplicationTests {
     @Test
     public void contextLoads() {
     }
-
 }
 

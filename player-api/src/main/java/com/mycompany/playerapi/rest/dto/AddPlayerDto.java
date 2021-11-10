@@ -24,5 +24,4 @@ public class AddPlayerDto extends BasePlayerDto {
     @Schema(example = "http://...")
     @NotBlank
     private String image;
-
 }

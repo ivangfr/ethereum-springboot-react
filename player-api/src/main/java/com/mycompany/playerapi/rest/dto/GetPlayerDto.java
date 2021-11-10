@@ -16,5 +16,4 @@ public class GetPlayerDto extends BasePlayerDto {
     @NotNull
     @Positive
     private BigInteger playerId;
-
 }

@@ -21,5 +21,4 @@ public interface EthereumService {
     EthSendTransaction transfer(String fromAddress, String toAddress, BigInteger amount, BigInteger gasPrice, BigInteger gasLimit) throws IOException;
 
     String deploySoccerManagerContract(String password, String file, BigInteger gasPrice, BigInteger gasLimit) throws Exception;
-
 }

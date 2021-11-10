@@ -97,5 +97,4 @@ public class PlayerApiController {
                 basePlayerDto.getGasPrice(),
                 basePlayerDto.getGasLimit());
     }
-
 }

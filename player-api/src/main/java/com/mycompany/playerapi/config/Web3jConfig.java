@@ -12,5 +12,4 @@ public class Web3jConfig {
     Web3j web3j() {
         return Web3j.build(new HttpService());
     }
-
 }

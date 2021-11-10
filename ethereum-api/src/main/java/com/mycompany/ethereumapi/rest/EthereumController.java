@@ -80,5 +80,4 @@ public class EthereumController {
                 deployContractDto.getGasPrice(),
                 deployContractDto.getGasLimit());
     }
-
 }

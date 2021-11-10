@@ -9,6 +9,5 @@ public class EthereumApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(EthereumApiApplication.class, args);
     }
-
 }
 

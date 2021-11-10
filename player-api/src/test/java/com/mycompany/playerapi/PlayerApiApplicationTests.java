@@ -11,6 +11,5 @@ class PlayerApiApplicationTests {
     @Test
     public void contextLoads() {
     }
-
 }
 

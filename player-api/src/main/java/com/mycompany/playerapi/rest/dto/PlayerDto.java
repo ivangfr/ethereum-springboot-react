@@ -15,5 +15,4 @@ public class PlayerDto {
     private String image;
     private Boolean forSale;
     private String agent;
-
 }

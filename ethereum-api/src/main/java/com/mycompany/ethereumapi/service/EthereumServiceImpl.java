@@ -81,5 +81,4 @@ public class EthereumServiceImpl implements EthereumService {
 
         return soccerManager.getContractAddress();
     }
-
 }

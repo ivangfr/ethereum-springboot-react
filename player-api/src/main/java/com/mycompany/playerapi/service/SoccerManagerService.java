@@ -19,5 +19,4 @@ public interface SoccerManagerService {
     List getPlayersOfAgent(String password, String file, BigInteger gasPrice, BigInteger gasLimit) throws Exception;
 
     BigInteger getNumberOfPlayers(String password, String file, BigInteger gasPrice, BigInteger gasLimit) throws Exception;
-
 }

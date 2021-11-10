@@ -21,5 +21,4 @@ public class BuyPlayerDto extends BasePlayerDto {
     @NotNull
     @Positive
     private BigInteger weiValue;
-
 }

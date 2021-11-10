@@ -11,5 +11,4 @@ public class WalletDto {
 
     private String file;
     private String address;
-
 }

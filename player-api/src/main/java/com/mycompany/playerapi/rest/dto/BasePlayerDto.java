@@ -28,5 +28,4 @@ public class BasePlayerDto {
     @NotNull
     @Positive
     private BigInteger gasLimit;
-
 }

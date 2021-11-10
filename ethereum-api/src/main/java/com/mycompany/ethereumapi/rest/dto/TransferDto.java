@@ -33,5 +33,4 @@ public class TransferDto {
     @NotNull
     @Positive
     private BigInteger gasLimit;
-
 }

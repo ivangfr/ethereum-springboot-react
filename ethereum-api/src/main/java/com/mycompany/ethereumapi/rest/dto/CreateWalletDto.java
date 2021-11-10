@@ -17,5 +17,4 @@ public class CreateWalletDto {
     @Schema(example = "10000000000000000000")
     @NotNull
     private BigInteger initialBalance;
-
 }

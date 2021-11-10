@@ -24,7 +24,7 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
 
   `Spring Boot`application that communicates with Ethereum Blockchain, using `Web3j` library. `ethereum-api` provides some endpoints to create a new wallet, transfer ether from one wallet to another, etc.
 
-  ![ethereum-api](images/ethereum-api.png)
+  ![ethereum-api](documentation/ethereum-api.png)
 
 - **player-api**
 
@@ -32,7 +32,7 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
 
   Some endpoints, such `POST /api/players/add`, requires the use of the **owner contract wallet**, i.e, the wallet that was used to deploy `SoccerManager` smart contract.
 
-  ![player-api](images/player-api.png)
+  ![player-api](documentation/player-api.png)
 
 - **ethereum-ui** (TODO)
 
@@ -44,7 +44,7 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
 
 ## Prerequisites
 
-- [`Java 11+`](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+- [`Java 11+`](https://www.oracle.com/java/technologies/downloads/#java11)
 - [`Docker`](https://www.docker.com/)
 - [`jq`](https://stedolan.github.io/jq)
 

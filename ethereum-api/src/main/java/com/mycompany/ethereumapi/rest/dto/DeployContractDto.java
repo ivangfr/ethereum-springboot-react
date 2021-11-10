@@ -28,5 +28,4 @@ public class DeployContractDto {
     @NotNull
     @Positive
     private BigInteger gasLimit;
-
 }

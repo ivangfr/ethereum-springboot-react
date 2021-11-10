@@ -81,5 +81,4 @@ public class SoccerManagerServiceImpl implements SoccerManagerService {
 
         return soccerManager;
     }
-
 }

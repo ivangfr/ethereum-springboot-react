@@ -20,5 +20,4 @@ public class UpdatePlayerDto extends BasePlayerDto {
     @Schema(example = "true")
     @NotNull
     private Boolean forSale;
-
 }
