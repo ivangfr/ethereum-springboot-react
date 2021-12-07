@@ -2,7 +2,6 @@ package com.mycompany.playerapi.service;
 
 import com.mycompany.playerapi.contract.SoccerManager;
 import com.mycompany.playerapi.exception.ContractAddressNotInformedException;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

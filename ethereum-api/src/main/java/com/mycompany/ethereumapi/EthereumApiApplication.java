@@ -10,4 +10,3 @@ public class EthereumApiApplication {
         SpringApplication.run(EthereumApiApplication.class, args);
     }
 }
-
