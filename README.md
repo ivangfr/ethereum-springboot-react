@@ -144,7 +144,7 @@ docker run -d --rm --name ethereum \
 ## Application URLs
 
 | Application    | URL                                   |
-| -------------- | ------------------------------------- |
+|----------------|---------------------------------------|
 | `ethereum-api` | http://localhost:8080/swagger-ui.html |
 | `player-api`   | http://localhost:8081/swagger-ui.html |
 
