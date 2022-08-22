@@ -24,7 +24,7 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
 
   `Spring Boot`application that communicates with Ethereum Blockchain, using `Web3j` library. `ethereum-api` provides some endpoints to create a new wallet, transfer ether from one wallet to another, etc.
 
-  ![ethereum-api](documentation/ethereum-api.png)
+  ![ethereum-api](documentation/ethereum-api.jpeg)
 
 - **player-api**
 
@@ -32,7 +32,7 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
 
   Some endpoints, such `POST /api/players/add`, requires the use of the **owner contract wallet**, i.e, the wallet that was used to deploy `SoccerManager` smart contract.
 
-  ![player-api](documentation/player-api.png)
+  ![player-api](documentation/player-api.jpeg)
 
 - **ethereum-ui** (TODO)
 
@@ -44,7 +44,7 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
 
 ## Prerequisites
 
-- [`Java 11+`](https://www.oracle.com/java/technologies/downloads/#java11)
+- [`Java 17+`](https://www.oracle.com/java/technologies/downloads/#java17)
 - [`Docker`](https://www.docker.com/)
 - [`jq`](https://stedolan.github.io/jq)
 
@@ -129,7 +129,7 @@ docker run -d --rm --name ethereum \
 
 - ### Start player-api
 
-  - Open a new terminal and navigate to `ethereum-springboot-react/player-api` folder
+  - In a terminal, make sure you are inside `ethereum-springboot-react/player-api` folder
   
   - Export to `ETHEREUM_CONTRACT_SOCCERMANAGER_ADDRESS` environment variable the `SoccerManager` contract address obtained at [Deploy Smart Contract](#deploy-smart-contract) step
     ```
@@ -143,14 +143,14 @@ docker run -d --rm --name ethereum \
 
 ## Application URLs
 
-| Application    | URL                                   |
-|----------------|---------------------------------------|
-| `ethereum-api` | http://localhost:8080/swagger-ui.html |
-| `player-api`   | http://localhost:8081/swagger-ui.html |
+| Application    | URL                                         |
+|----------------|---------------------------------------------|
+| `ethereum-api` | http://localhost:8080/swagger-ui/index.html |
+| `player-api`   | http://localhost:8081/swagger-ui/index.html |
 
 ## Test player-api
 
-- In a terminal, run the following commands to create `new agent` wallet
+- In a new terminal, run the following commands to create `new agent` wallet
   ```
   NEW_AGENT_WALLET=$(curl -s -X POST "http://localhost:8080/api/wallets/create" \
     -H "Content-Type: application/json" \
