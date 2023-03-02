@@ -7,6 +7,7 @@ import com.ivanfranchin.playerapi.rest.dto.GetPlayerDto;
 import com.ivanfranchin.playerapi.rest.dto.PlayerDto;
 import com.ivanfranchin.playerapi.rest.dto.UpdatePlayerDto;
 import com.ivanfranchin.playerapi.service.SoccerManagerService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.tuples.generated.Tuple6;
 
-import javax.validation.Valid;
 import java.math.BigInteger;
 import java.util.List;
 

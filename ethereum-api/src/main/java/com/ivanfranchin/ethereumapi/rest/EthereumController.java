@@ -1,11 +1,12 @@
 package com.ivanfranchin.ethereumapi.rest;
 
-import com.ivanfranchin.ethereumapi.service.EthereumService;
 import com.ivanfranchin.ethereumapi.rest.dto.CreateWalletDto;
 import com.ivanfranchin.ethereumapi.rest.dto.DeployContractDto;
 import com.ivanfranchin.ethereumapi.rest.dto.GetWalletAddressDto;
 import com.ivanfranchin.ethereumapi.rest.dto.TransferDto;
 import com.ivanfranchin.ethereumapi.rest.dto.WalletDto;
+import com.ivanfranchin.ethereumapi.service.EthereumService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,6 @@ import org.web3j.crypto.CipherException;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 
-import javax.validation.Valid;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.List;

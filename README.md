@@ -8,6 +8,10 @@ The project goals are:
 
 1. Implement two [`ReactJS`](https://reactjs.org/) frontend applications, `ethereum-ui` and `player-ui`, that communicate to their respective backend application.
 
+## Project Diagram
+
+![project-diagram](documentation/project-diagram.png)
+
 ## Ethereum Smart Contract
 
 `Ethereum Smart Contract` is a program that runs on an `EVM` (`Ethereum Virtual Machine`) similar to a Java program that runs on `JVM` (`Java Virtual Machine`). A contract is a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum Blockchain. Ethereum Smart Contracts are usually written in `Solidity` programming language.
@@ -58,7 +62,7 @@ docker run -d --rm --name ethereum \
   --rpc --rpcaddr "0.0.0.0" --rpcapi="db,eth,net,web3,personal" --rpccorsdomain "*" --dev
 ```
 
-> Run the following `docker exec` command if you want to enter in the `Geth`’s interactive JavaScript console inside Docker container. It provides a lot of features such as: create an wallet, check waller balance, transfer ether from one address to another, etc. I won't focus on it because I decided to implement such features in `ethereum-api` using `Web3j`.
+> Run the following `docker exec` command if you want to enter in the `Geth`’s interactive JavaScript console inside Docker container. It provides a lot of features such as: create a wallet, check waller balance, transfer ether from one address to another, etc. We won't focus on it because we've decided to implement such features in `ethereum-api` using `Web3j`. In order to get more information visite [Geth JavaScript console documentation](https://geth.ethereum.org/docs/interacting-with-geth/javascript-console)
 > ```
 > docker exec -it ethereum geth attach ipc:/tmp/geth.ipc
 > ```
@@ -85,7 +89,7 @@ docker run -d --rm --name ethereum \
 
 - ### Start ethereum-api
 
-  - Open a new terminal and nagivate to `ethereum-springboot-react/ethereum-api` folder
+  - Open a new terminal and navigate to `ethereum-springboot-react/ethereum-api` folder
   
   - Run following command to start application
     ```
@@ -189,7 +193,7 @@ docker run -d --rm --name ethereum \
 
 ## Shutdown
 
-- To stop `ethereum-api` and `player-api`, just to got the terminals where they are running and press `Ctrl+C`
+- To stop `ethereum-api` and `player-api`, just go to the terminals where they are running and press `Ctrl+C`
 - To stop `ethereum/client-go` docker container, run the following command in a terminal
   ```
   docker stop ethereum
