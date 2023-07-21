@@ -10,7 +10,7 @@ The project goals are:
 
 ## Project Diagram
 
-![project-diagram](documentation/project-diagram.png)
+![project-diagram](documentation/project-diagram.jpeg)
 
 ## Ethereum Smart Contract
 
@@ -154,7 +154,7 @@ docker run -d --rm --name ethereum \
 
 ## Test player-api
 
-- In a new terminal, run the following commands to create `new agent` wallet
+- In a new terminal and inside `ethereum-springboot-react` root folder, run the following commands to create `new agent` wallet
   ```
   NEW_AGENT_WALLET=$(curl -s -X POST "http://localhost:8080/api/wallets/create" \
     -H "Content-Type: application/json" \
