@@ -6,7 +6,7 @@ The project goals are:
 
 1. Implement two [`Spring Boot`](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/) backend applications, `ethereum-api` and `player-api`, that uses [Web3j](https://docs.web3j.io/getting_started.html) library to communicate with Ethereum blockchain;
 
-1. Implement two [`ReactJS`](https://reactjs.org/) frontend applications, `ethereum-ui` and `player-ui`, that communicate to their respective backend application.
+1. Implement two [`React`](https://react.dev/) frontend applications, `ethereum-ui` and `player-ui`, that communicate to their respective backend application.
 
 ## Proof-of-Concepts & Articles
 
@@ -44,11 +44,11 @@ In order to implement smart contracts we used [Remix](https://remix.ethereum.org
 
 - **ethereum-ui** (TODO)
 
-  `ReactJS` frontend application that provides a User Interface so that we can create a wallet, check its balance, transfer ethereum to other wallets, etc.
+  `React` frontend application that provides a User Interface so that we can create a wallet, check its balance, transfer ethereum to other wallets, etc.
 
 - **player-ui** (TODO)
 
-  `ReactJS` frontend application that provides a User Interface to easily play with Ethereum Blockchain and `SoccerManager` smart contract. Using `Web3j`, it listens to `PlayerAdded`, `PlayerUpdated` and `PlayerBought` event emitted from `SoccerManager` contract (and some other logs from Ethereum Blockchain) and updates the screen on-the-fly. Besides, `player-ui` communicates directly with `player-api` whenever it needs some information from `SoccerManager` contract.
+  `React` frontend application that provides a User Interface to easily play with Ethereum Blockchain and `SoccerManager` smart contract. Using `Web3j`, it listens to `PlayerAdded`, `PlayerUpdated` and `PlayerBought` event emitted from `SoccerManager` contract (and some other logs from Ethereum Blockchain) and updates the screen on-the-fly. Besides, `player-ui` communicates directly with `player-api` whenever it needs some information from `SoccerManager` contract.
 
 ## Prerequisites
 
